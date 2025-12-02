@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youssef Bouzit - Data Scientist & AI Engineer</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f0f0f;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 10%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #2E5A88;
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #2E5A88;
+            transition: width 0.3s ease;
+        }
+
+        .navbar a:hover::after,
+        .navbar a.active::after {
+            width: 100%;
+        }
+
+        /* Home Section - Centered */
+        .home {
+            min-height: 100vh;
+            padding: 8rem 10% 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 2rem;
+        }
+
+        .home-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .home-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #2E5A88, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .home-content h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #D4AF37;
+        }
+
+        .about-section {
+            width: 100%;
+            max-width: 600px;
+            padding: 2rem;
+            background: rgba(26, 26, 26, 0.5);
+            border-radius: 15px;
+            border-left: 4px solid #2E5A88;
+            margin: 0 auto;
+        }
+
+        .about-section h3 {
+            color: #D4AF37;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .about-section p {
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .status-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .status-badge {
+            background: rgba(46, 90, 136, 0.2);
+            border: 1px solid #2E5A88;
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-badge i {
+            color: #4CAF50;
+        }
+
+        .target-positions {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid #D4AF37;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .target-positions h4 {
+            color: #D4AF37;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .target-positions p {
+            color: #b0b0b0;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .btn-box {
+            display: flex;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 2rem;
+            background: #2E5A88;
+            color: #ffffff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #2E5A88;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: #2E5A88;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(46, 90, 136, 0.3);
+        }
+
+        .btn-cv {
+            background: #D4AF37;
+            border-color: #D4AF37;
+            color: #000;
+        }
+
+        .btn-cv:hover {
+            background: transparent;
+            color: #D4AF37;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .home-social {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .home-social a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background: #2E5A88;
+            border-radius: 50%;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .home-social a:hover {
+            background: #D4AF37;
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 10%;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(45deg, #2E5A88, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            border-color: #2E5A88;
+            transform: translateY(-5px);
+        }
+
+        .about-card h4 {
+            color: #D4AF37;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Education Section */
+        .education-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #2E5A88, #D4AF37);
+            border-radius: 2px;
+        }
+
+        .education-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            background: #2E5A88;
+            border-radius: 50%;
+            border: 3px solid #0f0f0f;
+            box-shadow: 0 0 0 3px #2E5A88;
+        }
+
+        .education-date {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #D4AF37;
+            margin-bottom: 0.5rem;
+            background: rgba(46, 90, 136, 0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .education-details {
+            background: #1a1a1a;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .education-details:hover {
+            border-color: #2E5A88;
+            transform: translateX(10px);
+        }
+
+        .education-details h3 {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-details h4 {
+            font-size: 1rem;
+            color: #D4AF37;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .education-details h4 a {
+            color: #D4AF37;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .education-details h4 a:hover {
+            color: #2E5A88;
+            text-decoration: underline;
+        }
+
+        .education-details p {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: #1a1a1a;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #333;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(46, 90, 136, 0.3);
+            border-color: #2E5A88;
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+            background: linear-gradient(45deg, #1a1a1a, #2E5A88);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .project-image i {
+            font-size: 4rem;
+            color: #ffffff;
+            opacity: 0.7;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .project-content p {
+            color: #b0b0b0;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech span {
+            background: #2E5A88;
+            color: #ffffff;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            padding: 0.6rem 1.5rem;
+            background: transparent;
+            color: #2E5A88;
+            text-decoration: none;
+            border: 2px solid #2E5A88;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .project-links a:hover {
+            background: #2E5A88;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: #2E5A88;
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: #D4AF37;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+
+        .skill-list span {
+            background: #2E5A88;
+            color: #ffffff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-list span:hover {
+            background: #D4AF37;
+            transform: scale(1.05);
+        }
+
+        .professional-skills {
+            grid-column: 1 / -1;
+            margin-top: 2rem;
+        }
+
+        .professional-skills .skill-list {
+            justify-content: center;
+        }
+
+        .professional-skills .skill-list span {
+            background: #D4AF37;
+            color: #000;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: #1a1a1a;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: #2E5A88;
+            transform: translateX(5px);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #D4AF37;
+        }
+
+        .contact-item h3 {
+            color: #ffffff;
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item p {
+            color: #b0b0b0;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .cv-download-link {
+            color: #2E5A88;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cv-download-link:hover {
+            color: #D4AF37;
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            resize: vertical;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #2E5A88;
+            box-shadow: 0 0 10px rgba(46, 90, 136, 0.3);
+        }
+
+        .contact-form button {
+            align-self: flex-start;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background: #1a1a1a;
+            color: #b0b0b0;
+            border-top: 1px solid #333;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem 5%;
+            }
+
+            .navbar {
+                gap: 1rem;
+            }
+
+            .navbar a {
+                font-size: 0.9rem;
+            }
+
+            .home {
+                padding: 6rem 5% 3rem;
+                gap: 1.5rem;
+            }
+
+            .home-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .home-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .about-section {
+                padding: 1.5rem;
+            }
+
+            .status-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-box {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-timeline {
+                padding-left: 1rem;
+            }
+
+            .education-item {
+                padding-left: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .home-content h1 {
+                font-size: 2rem;
+            }
+
+            .home-content h3 {
+                font-size: 1.2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .navbar {
+                gap: 0.8rem;
+            }
+
+            .navbar a {
+                font-size: 0.8rem;
+            }
+
+            .btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .status-badge {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .education-details {
+                padding: 1rem;
+            }
+
+            .education-details h3 {
+                font-size: 1.1rem;
+            }
+        }
+
+        .particles{
+            opacity:.8;
+            position:fixed;
+            width: 100vw;
+            height:100vh;
+            top:0;
+            left:0;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js" class="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo">Youssef.</a>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home Section - Centered -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <div>
+                <h1>Hi 👋, I'm Youssef Bouzit</h1>
+                <h3>Data Science Engineering Student</h3>
+            </div>
+            
+            <div class="about-section">
+                <h3>🎓 Current Status</h3>
+                <p>Data Science Engineering Student — Aspiring Data Scientist & AI Engineer, specialized in AI, NLP, functional analysis and model robustness.</p>
+            </div>
+
+            <div class="status-badges">
+                <div class="status-badge">
+                    <i class='bx bx-check'></i>
+                    Available for PFE internship starting immediately
+                </div>
+                <div class="status-badge">
+                    <i class='bx bx-check'></i>
+                    Open to full-time positions after graduation
+                </div>
+            </div>
+
+            <div class="target-positions">
+                <h4>💡 Target Positions:</h4>
+                <p>Data Analyst, Data Scientist, Machine Learning Engineer, AI Developer</p>
+                <p>🌐 All data analysis roles considered</p>
+            </div>
+
+            <div class="btn-box">
+                <a href="#contact" class="btn">Contact Me</a>
+                <a href="#projects" class="btn">View Projects</a>
+                <a href="#skills" class="btn">View Skills</a>
+                <a href="Youssef_Bouzit_CV.pdf" download class="btn btn-cv">
+                    <i class='bx bx-download'></i> Download CV
+                </a>
+            </div>
+            
+            <div class="home-social">
+                <a href="https://github.com/YOUSSEF-BT" target="_blank"><i class='bx bxl-github'></i></a>
+                <a href="mailto:bt.youssef.369@gmail.com"><i class='bx bxl-gmail'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-section">
+                <h3>🔍 Career Objective</h3>
+                <p>Actively seeking PFE internship followed by CDI in Data Science, Data Analyst, or Artificial Intelligence roles. Passionate about transforming complex data into actionable insights and building intelligent solutions.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <h4>🎯 Education</h4>
+                    <p>Data Science Engineering Student with focus on AI, machine learning, and data analysis. Strong foundation in mathematics, statistics, and computer science.</p>
+                </div>
+                
+                <div class="about-card">
+                    <h4>💼 Professional Goals</h4>
+                    <p>Looking for opportunities to apply data science skills in real-world scenarios, contribute to innovative projects, and grow as a professional in the AI/ML field.</p>
+                </div>
+                
+                <div class="about-card">
+                    <h4>🚀 Career Path</h4>
+                    <p>From PFE internship to full-time position, aiming to specialize in NLP, predictive modeling, and AI system development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <h2>My Education</h2>
+        <p style="text-align: center; color: #b0b0b0; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Educational journey and achievements
+        </p>
+        
+        <div class="education-timeline">
+            <!-- 3ème Année Cycle d'Ingénieur GI-IDS -->
+            <div class="education-item">
+                <div class="education-date">2025 - Present</div>
+                <div class="education-details">
+                    <h3>3rd Year Engineering Cycle - GI-IDS (Data Science & AI)</h3>
+                    <h4><a href="https://supmti.ac.ma/cycle-dingenieur/" target="_blank">SUP MTI - École Supérieure Privée des Métiers des Technologies de l'Information</a></h4>
+                    <p>Advanced studies in Data Science, Artificial Intelligence, and Machine Learning. Specialized courses in big data technologies, advanced algorithms, deep learning, and real-world AI applications. Currently working on cutting-edge projects in predictive modeling and intelligent systems.</p>
+                </div>
+            </div>
+
+            <!-- 2ème Année Cycle d'Ingénieur GI -->
+            <div class="education-item">
+                <div class="education-date">2024 - 2025</div>
+                <div class="education-details">
+                    <h3>2nd Year Engineering Cycle - General Engineering</h3>
+                    <h4><a href="https://supmti.ac.ma/cycle-dingenieur/" target="_blank">SUP MTI - École Supérieure Privée des Métiers des Technologies de l'Information</a></h4>
+                    <p>Comprehensive engineering curriculum covering advanced computer science concepts, software engineering, database systems, and network architectures. Developed strong foundations in system design and complex problem-solving methodologies.</p>
+                </div>
+            </div>
+
+            <!-- 1ère Année Cycle d'Ingénieur GI -->
+            <div class="education-item">
+                <div class="education-date">2023 - 2024</div>
+                <div class="education-details">
+                    <h3>1st Year Engineering Cycle - General Engineering</h3>
+                    <h4><a href="https://supmti.ac.ma/cycle-dingenieur/" target="_blank">SUP MTI - École Supérieure Privée des Métiers des Technologies de l'Information</a></h4>
+                    <p>Introduction to engineering principles with focus on computer science fundamentals, programming methodologies, and mathematical modeling. Gained expertise in algorithm design, data structures, and software development lifecycle.</p>
+                </div>
+            </div>
+
+            <!-- 2ème Année Classes Préparatoires TI -->
+            <div class="education-item">
+                <div class="education-date">2022 - 2023</div>
+                <div class="education-details">
+                    <h3>2nd Year Preparatory Classes - Technology & Computer Science</h3>
+                    <h4><a href="https://supmti.ac.ma/classes-preparatoires/" target="_blank">SUP MTI - École Supérieure Privée des Métiers des Technologies de l'Information</a></h4>
+                    <p>Advanced preparatory studies with intensive focus on mathematics, physics, and computer science. Developed strong analytical skills through rigorous coursework in algorithms, computer architecture, and programming fundamentals.</p>
+                </div>
+            </div>
+
+            <!-- 1ère Année Classes Préparatoires TI -->
+            <div class="education-item">
+                <div class="education-date">2021 - 2022</div>
+                <div class="education-details">
+                    <h3>1st Year Preparatory Classes - Technology & Computer Science</h3>
+                    <h4><a href="https://supmti.ac.ma/classes-preparatoires/" target="_blank">SUP MTI - École Supérieure Privée des Métiers des Technologies de l'Information</a></h4>
+                    <p>Foundation year in preparatory classes with emphasis on mathematics, physics, and introductory computer science. Built strong analytical and problem-solving skills essential for engineering studies.</p>
+                </div>
+            </div>
+
+            <!-- Baccalaureate -->
+            <div class="education-item">
+                <div class="education-date">2021</div>
+                <div class="education-details">
+                    <h3>Baccalaureate in Physical Sciences (Very Good)</h3>
+                    <p>Scientific Baccalaureate with excellent results, specializing in Mathematics, Physics, Chemistry, and Natural Sciences. Developed strong analytical thinking and scientific reasoning skills through rigorous coursework and laboratory experiments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <h2>My GitHub Projects</h2>
+        <div class="projects-grid">
+            <!-- Customer Churn Analysis -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class='bx bx-user-x'></i>
+                </div>
+                <div class="project-content">
+                    <h3>Customer Churn Analysis</h3>
+                    <p>Comprehensive analysis of customer churn patterns using machine learning algorithms to predict and reduce customer attrition. Features data preprocessing, feature engineering, and model evaluation.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Pandas</span>
+                        <span>Scikit-learn</span>
+                        <span>Matplotlib</span>
+                        <span>Seaborn</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/YOUSSEF-BT/customer-churn-analysis" target="_blank">Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flight Delay Analysis -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class='bx bx-plane'></i>
+                </div>
+                <div class="project-content">
+                    <h3>Flight Delay Analysis</h3>
+                    <p>Predictive analysis of flight delays using historical flight data. Implements time series analysis and machine learning models to forecast delays and identify key contributing factors.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Time Series</span>
+                        <span>XGBoost</span>
+                        <span>Data Visualization</span>
+                        <span>Jupyter</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/YOUSSEF-BT/flight-delay-analysis" target="_blank">Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fraud Detection App -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class='bx bx-shield'></i>
+                </div>
+                <div class="project-content">
+                    <h3>Fraud Detection Application</h3>
+                    <p>Real-time fraud detection system using anomaly detection algorithms. Features streaming data processing, alert generation, and interactive dashboard for monitoring suspicious activities.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Streamlit</span>
+                        <span>Isolation Forest</span>
+                        <span>Real-time</span>
+                        <span>Dashboard</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/YOUSSEF-BT/Fraud-detection-app" target="_blank">Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call Center Analytics -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class='bx bx-phone-call'></i>
+                </div>
+                <div class="project-content">
+                    <h3>Call Center Analytics</h3>
+                    <p>Analytics platform for call center performance optimization. Includes sentiment analysis of calls, agent performance metrics, and customer satisfaction prediction using NLP techniques.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>NLP</span>
+                        <span>Sentiment Analysis</span>
+                        <span>Tableau</span>
+                        <span>SQL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/YOUSSEF-BT/call-center-analytics" target="_blank">Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Analytics Platform -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class='bx bx-line-chart'></i>
+                </div>
+                <div class="project-content">
+                    <h3>Customer Analytics Platform</h3>
+                    <p>Complete customer data analytics platform with churn prediction, advanced segmentation, and automated reporting. Developed in just 8 hours as a rapid prototyping challenge.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Streamlit</span>
+                        <span>Machine Learning</span>
+                        <span>Plotly</span>
+                        <span>Scikit-learn</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/YOUSSEF-BT/Customer-Analytics-Churn-Prediction-Platform" target="_blank">Source Code</a>
+                        <a href="https://customer-analytics-churn-prediction-platform-mezggcfmcjpxp7vei.streamlit.app/" target="_blank">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Solutions Portfolio -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class='bx bx-brain'></i>
+                </div>
+                <div class="project-content">
+                    <h3>AI Solutions Portfolio</h3>
+                    <p>Professional portfolio in development - Currently crafting innovative AI solutions and comprehensive case studies. Focus on practical applications of machine learning and data science.</p>
+                    <div class="project-tech">
+                        <span>AI/ML</span>
+                        <span>Case Studies</span>
+                        <span>Python</span>
+                        <span>Documentation</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank">In Progress</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class='bx bx-brain'></i> Data Science & AI</h3>
+                    <div class="skill-list">
+                        <span>Python</span>
+                        <span>R</span>
+                        <span>MATLAB</span>
+                        <span>Machine Learning</span>
+                        <span>Deep Learning</span>
+                        <span>AI</span>
+                        <span>Signal Processing</span>
+                        <span>Image Processing</span>
+                        <span>Streamlit</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class='bx bx-message-alt'></i> AI Prompt Engineering</h3>
+                    <div class="skill-list">
+                        <span>Prompt Engineering</span>
+                        <span>ChatGPT</span>
+                        <span>DeepSeek</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class='bx bx-bar-chart'></i> Data Analysis & BI</h3>
+                    <div class="skill-list">
+                        <span>SQL</span>
+                        <span>MySQL</span>
+                        <span>PL/SQL</span>
+                        <span>Oracle Database</span>
+                        <span>Tableau</span>
+                        <span>Power BI</span>
+                        <span>Excel</span>
+                        <span>Hadoop</span>
+                        <span>LabVIEW</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class='bx bx-code'></i> Programming</h3>
+                    <div class="skill-list">
+                        <span>Java</span>
+                        <span>JEE</span>
+                        <span>C</span>
+                        <span>C#</span>
+                        <span>.NET</span>
+                        <span>JavaScript</span>
+                        <span>PHP</span>
+                        <span>Laravel</span>
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>Bootstrap</span>
+                        <span>XML</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class='bx bx-server'></i> DevOps & Infrastructure</h3>
+                    <div class="skill-list">
+                        <span>Docker</span>
+                        <span>Linux Ubuntu</span>
+                        <span>Red Hat</span>
+                        <span>Windows Admin</span>
+                        <span>Web Scraping</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class='bx bx-office'></i> Office & Documentation</h3>
+                    <div class="skill-list">
+                        <span>Microsoft Word</span>
+                        <span>Microsoft Excel</span>
+                    </div>
+                </div>
+
+                <div class="skill-category professional-skills">
+                    <h3><i class='bx bx-star'></i> Professional Skills</h3>
+                    <div class="skill-list">
+                        <span>Problem Solving</span>
+                        <span>Analytical Thinking</span>
+                        <span>Team Collaboration</span>
+                        <span>Communication</span>
+                        <span>Project Management</span>
+                        <span>Documentation</span>
+                        <span>Continuous Learning</span>
+                        <span>Adaptability</span>
+                        <span>Innovation</span>
+                        <span>Creative Thinking</span>
+                        <span>Time Management</span>
+                        <span>Organization</span>
+                        <span>Prompt Engineering</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class='bx bx-envelope'></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>bt.youssef.369@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class='bx bxl-github'></i>
+                    <div>
+                        <h3>GitHub</h3>
+                        <p>github.com/YOUSSEF-BT</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class='bx bx-file'></i>
+                    <div>
+                        <h3>Curriculum Vitae</h3>
+                        <p><a href="Youssef_Bouzit_CV.pdf" download class="cv-download-link">
+                            <i class='bx bx-download'></i> Download PDF
+                        </a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class='bx bx-briefcase'></i>
+                    <div>
+                        <h3>Hiring Status</h3>
+                        <p>✅ Available for PFE internship</p>
+                        <p>✅ Open to full-time positions</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class='bx bx-target-lock'></i>
+                    <div>
+                        <h3>Target Positions</h3>
+                        <p>Data Analyst, Data Scientist</p>
+                        <p>ML Engineer, AI Developer</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Youssef Bouzit. All rights reserved.</p>
+        <p>Data Science Engineering Student | AI & ML Enthusiast</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation link highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.navbar a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = this.querySelector('input[name="name"]').value;
+            
+            // Simple form validation
+            if (!name || !this.querySelector('input[name="email"]').value || !this.querySelector('textarea[name="message"]').value) {
+                alert('Please fill in all form fields.');
+                return;
+            }
+            
+            // Here you would typically send the data to a server
+            // For now, we'll just show an alert
+            alert(`Thank you for your message, ${name}! I will get back to you as soon as possible.`);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Add scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const elementsToAnimate = document.querySelectorAll('.home-content, .about-section, .about-card, .education-item, .project-card, .skill-category, .contact-content, .contact-item');
+            
+            elementsToAnimate.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 15, 15, 0.98)';
+                header.style.padding = '1rem 10%';
+            } else {
+                header.style.background = 'rgba(15, 15, 15, 0.95)';
+                header.style.padding = '1.5rem 10%';
+            }
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // CV download tracking
+        const cvLinks = document.querySelectorAll('a[href*="Youssef_Bouzit_CV.pdf"]');
+        cvLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                console.log('CV download initiated');
+                // You can add analytics tracking here if needed
+            });
+        });
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+    particlesJS.load('particles-js', 'particles.json', function () {
+        console.log('Particles loaded ✅');
+    });
+    </script>
+</body>
+</html>
