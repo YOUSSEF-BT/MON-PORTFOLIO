@@ -12,9 +12,6 @@ Bienvenue sur mon **portfolio en ligne**, qui présente mon profil, mon CV, mes 
 
 ## 🔹 Aperçu du site
 
-![Portfolio Screenshot](https://user-images.githubusercontent.com/placeholder/portfolio-screenshot.png)
-*Capture d’écran du site en ligne.*
-
 **Lien direct :** [youssefbtportfolio.netlify.app](https://youssefbtportfolio.netlify.app/)
 
 ---
@@ -58,11 +55,11 @@ Bienvenue sur mon **portfolio en ligne**, qui présente mon profil, mon CV, mes 
 
 ## 📂 Projets mis en avant
 
-| Projet                  | Aperçu                                                                                               | Lien                                                     |
-| ----------------------- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| Portfolio personnel     | ![Portfolio Preview](https://user-images.githubusercontent.com/placeholder/portfolio-screenshot.png) | [Voir en ligne](https://youssefbtportfolio.netlify.app/) |
-| CV en ligne             | ![CV Preview](https://user-images.githubusercontent.com/placeholder/cv-screenshot.png)               | [Télécharger PDF](./Youssef_Bouzit_CV.pdf)               |
-| Animations & Particules | Effets dynamiques sur la page d’accueil                                                              | [Voir en ligne](https://youssefbtportfolio.netlify.app/) |
+| Projet                  | Lien                                                     |
+| ----------------------- | -------------------------------------------------------- |
+| Portfolio personnel     | [Voir en ligne](https://youssefbtportfolio.netlify.app/) |
+| CV en ligne             | [Télécharger PDF](./Youssef_Bouzit_CV.pdf)               |
+| Animations & Particules | [Voir en ligne](https://youssefbtportfolio.netlify.app/) |
 
 ---
 
