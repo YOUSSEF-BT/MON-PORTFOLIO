@@ -80,7 +80,6 @@ git clone https://github.com/YOUSSEF-BT/YOUSSEF-BT-Portfolio.git
 
 * **Nom** : Youssef BT
 * **Email** : [bt.youssef.369@gmail.com](mailto:bt.youssef.369@gmail.com)
-* **Portfolio** : [youssefbtportfolio.netlify.app](https://youssefbtportfolio.netlify.app/)
 
 ---
 
